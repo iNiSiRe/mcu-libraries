@@ -6,7 +6,7 @@
 #define MCU_LIBRARIES_IRSENSOR_H
 
 #include <Arduino.h>
-#include <cstdint>
+//#include <cstdint>
 
 class IRSensor {
 
