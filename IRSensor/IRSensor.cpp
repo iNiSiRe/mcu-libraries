@@ -1,6 +1,6 @@
 #include "IRSensor.h"
 
-IRSensor::IRSensor(uint8_t pin)
+IRSensor::IRSensor(int pin)
 {
     this->pin = pin;
     pinMode(pin, INPUT);

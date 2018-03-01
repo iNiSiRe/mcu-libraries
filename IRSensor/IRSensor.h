@@ -11,10 +11,10 @@
 class IRSensor {
 
 private:
-    uint8_t pin;
+    int pin;
 
 public:
-    IRSensor(uint8_t pin);
+    IRSensor(int pin);
 
     int getSignal();
 };

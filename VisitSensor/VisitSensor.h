@@ -44,7 +44,7 @@ public:
 
     Direction detectedDirection = NONE;
 
-    VisitSensor(uint8_t leftPin, uint8_t rightPin) : beam1(BeamObserver(Beam(leftPin))), beam2(BeamObserver(Beam(rightPin)))
+    VisitSensor(int leftPin, int rightPin) : beam1(BeamObserver(Beam(IRSensor(leftPin)))), beam2(BeamObserver(Beam(IRSensor(rightPin))))
     {
         
     }

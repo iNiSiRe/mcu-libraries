@@ -11,6 +11,9 @@ void BeamObserver::update()
     state.open = open;
 }
 
-BeamState BeamObserver::getState() {
+BeamState BeamObserver::getState()
+{
+    update();
+
     return state;
 }
