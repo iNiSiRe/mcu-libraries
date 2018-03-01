@@ -23,12 +23,6 @@ private:
         R0
     };
 
-    enum Direction {
-        NONE = 0,
-        IN = 1,
-        OUT
-    };
-
     State state = BEGIN;
     Direction direction = NONE;
 
