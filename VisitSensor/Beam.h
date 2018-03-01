@@ -2,7 +2,7 @@
 #define MCU_LIBRARIES_BEAMINTERSECTIONDETECTOR_H
 
 #include <Arduino.h>
-#include <cstdint>
+//#include <cstdint>
 #include "../IRSensor/IRSensor.h"
 
 class Beam {

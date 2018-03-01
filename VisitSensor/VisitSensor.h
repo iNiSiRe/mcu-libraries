@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#include <functional>
+//#include <functional>
 #include "Beam.h"
 #include "BeamObserver.h"
 
@@ -38,6 +38,12 @@ private:
     void intersection(int beam, int value);
 
 public:
+
+    enum Direction {
+        NONE = 0,
+        IN = 1,
+        OUT
+    };
 
     bool debug = false;
 //    std::function<void(int)> callback;
