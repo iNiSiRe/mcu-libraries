@@ -17,7 +17,7 @@ class VisitSensor
 private:
 
     unsigned long changedAt = 0;
-    const int resetTime = 1000;
+    int resetTime = 1000;
 
     enum State {
         BEGIN = 0,
@@ -42,7 +42,10 @@ public:
 
     Direction detectedDirection = NONE;
 
-    VisitSensor(int leftPin, int rightPin) : beam1(BeamObserver(Beam(IRSensor(leftPin)))), beam2(BeamObserver(Beam(IRSensor(rightPin))))
+    VisitSensor(int leftPin, int rightPin, int resetTime = 1000) :
+            beam1(BeamObserver(Beam(IRSensor(leftPin)))),
+            beam2(BeamObserver(Beam(IRSensor(rightPin)))),
+            resetTime(resetTime)
     {
         
     }
