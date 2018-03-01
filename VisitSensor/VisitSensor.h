@@ -39,6 +39,12 @@ private:
 
 public:
 
+    enum Direction {
+        NONE = 0,
+        IN = 1,
+        OUT
+    };
+
     bool debug = false;
 //    std::function<void(int)> callback;
 
