@@ -9,7 +9,7 @@ class Beam {
 private:
     IRSensor sensor;
 
-    int threshold = 200;
+    int threshold = 100;
     bool open = true;
 
 public:
@@ -21,7 +21,7 @@ public:
 
     bool isOpen()
     {
-        open = sensor.getSignal() > threshold;
+        open = sensor.getSignal() < threshold;
 
         return open;
     }
