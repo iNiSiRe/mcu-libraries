@@ -123,20 +123,6 @@ void VisitSensor::setState(VisitSensor::State state)
 
 void VisitSensor::loop()
 {
-    unsigned long current = millis();
-
-    if (state == BEGIN) {
-        return;
-    }
-
-    if (current - changedAt >= resetTime) {
-        state = BEGIN;
-        direction = NONE;
-        detectedDirection = NONE;
-        Serial.println("Reset");
-        return;
-    }
-
     BeamState state;
 
     state = beam1.getState();
@@ -147,5 +133,19 @@ void VisitSensor::loop()
     state = beam2.getState();
     if (state.changed) {
         intersection(2, state.open);
+    }
+
+    unsigned long current = millis();
+
+    if (this->state == BEGIN) {
+        return;
+    }
+
+    if (current - changedAt >= resetTime) {
+        this->state = BEGIN;
+        direction = NONE;
+        detectedDirection = NONE;
+        Serial.println("Reset");
+        return;
     }
 }
