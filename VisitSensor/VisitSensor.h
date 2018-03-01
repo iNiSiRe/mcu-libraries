@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#include <functional>
+//#include <functional>
 #include "Beam.h"
 #include "BeamObserver.h"
 
