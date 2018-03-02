@@ -2,15 +2,14 @@
 #define MCU_LIBRARIES_BEAMINTERSECTIONDETECTOR_H
 
 #include <Arduino.h>
-//#include <cstdint>
-#include "../IRSensor/IRSensor.h"
+#include <IRSensor.h>
 
 class Beam {
 
 private:
     IRSensor sensor;
 
-    int threshold = 200;
+    int threshold = 100;
     bool open = true;
 
 public:
@@ -22,7 +21,7 @@ public:
 
     bool isOpen()
     {
-        open = sensor.getSignal() > threshold;
+        open = sensor.getSignal() < threshold;
 
         return open;
     }
