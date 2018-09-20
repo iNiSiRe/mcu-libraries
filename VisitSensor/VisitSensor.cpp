@@ -1,25 +1,28 @@
 #include "VisitSensor.h"
+#include "../Platform.h"
+
+using namespace inisire_mcu_libraries;
 
 void VisitSensor::intersection(int beam, int value)
 {
     State newState;
 
-    if (beam == 1 && value == HIGH) {
+    if (beam == 1 && value == Platform::HIGH) {
         newState = R1;
-    } else if (beam == 1 && value == LOW) {
+    } else if (beam == 1 && value == Platform::LOW) {
         newState = R0;
-    } else if (beam == 2 && value == HIGH) {
+    } else if (beam == 2 && value == Platform::HIGH) {
         newState = L1;
-    } else if (beam == 2 && value == LOW) {
+    } else if (beam == 2 && value == Platform::LOW) {
         newState = L0;
     } else {
         newState = BEGIN;
     }
 
     if (debug) {
-        Serial.print(this->state);
-        Serial.print(" ? ");
-        Serial.println(newState);
+//        Platform.print(this->state);
+//        Platform.print(" ? ");
+//        Platform.println(newState);
     }
 
     if (direction == NONE) {
@@ -107,14 +110,14 @@ void VisitSensor::intersection(int beam, int value)
 
 void VisitSensor::setState(VisitSensor::State state)
 {
-    unsigned long current = millis();
+    unsigned long current = platform->millis();
 
     if (debug) {
-        Serial.print(this->state);
-        Serial.print(" -> ");
-        Serial.print(state);
-        Serial.print("|");
-        Serial.println(current - changedAt);
+//        Serial.print(this->state);
+//        Serial.print(" -> ");
+//        Serial.print(state);
+//        Serial.print("|");
+//        Serial.println(current - changedAt);
     }
 
     this->state = state;
@@ -123,7 +126,7 @@ void VisitSensor::setState(VisitSensor::State state)
 
 void VisitSensor::loop()
 {
-    BeamState state;
+    BeamState state {false, false};
 
     state = beam1.getState();
     if (state.changed) {
@@ -135,7 +138,7 @@ void VisitSensor::loop()
         intersection(2, state.open);
     }
 
-    unsigned long current = millis();
+    unsigned long current = platform->millis();
 
     if (this->state == BEGIN) {
         return;
@@ -145,7 +148,9 @@ void VisitSensor::loop()
         this->state = BEGIN;
         direction = NONE;
         detectedDirection = NONE;
-        Serial.println("Reset");
+
+//        Serial.println("Reset");
+
         return;
     }
 }

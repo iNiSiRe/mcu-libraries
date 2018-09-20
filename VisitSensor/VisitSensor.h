@@ -1,7 +1,6 @@
 #ifndef MCU_LIBRARIES_BEAMINTERSECTIONSENSOR_H
 #define MCU_LIBRARIES_BEAMINTERSECTIONSENSOR_H
 
-#include <Arduino.h>
 #include "Beam.h"
 #include "BeamObserver.h"
 

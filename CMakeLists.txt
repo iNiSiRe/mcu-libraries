@@ -15,7 +15,9 @@ include_directories(mcu_libraries
 set(SOURCE_FILES
         VisitSensor/VisitSensor.h
         VisitSensor/VisitSensor.cpp
-        VisitSensor/Beam.cpp VisitSensor/Beam.h IRSensor/IRSensor.cpp IRSensor/IRSensor.h VisitSensor/BeamObserver.cpp VisitSensor/BeamObserver.h)
+        VisitSensor/Beam.cpp VisitSensor/Beam.h
+        IRSensor/IRSensor.cpp IRSensor/IRSensor.h
+        VisitSensor/BeamObserver.cpp VisitSensor/BeamObserver.h Platform.cpp Platform.h)
 
 add_definitions(
         -DUBRRH

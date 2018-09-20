@@ -1,12 +1,15 @@
 #include "IRSensor.h"
+#include "../Platform.h"
+
+using namespace inisire_mcu_libraries;
 
 IRSensor::IRSensor(int pin)
 {
     this->pin = pin;
-    pinMode(pin, INPUT);
+    platform->setPinMode(pin, Platform::INPUT);
 }
 
 int IRSensor::getSignal()
 {
-    return analogRead(this->pin);
+    return platform->analogRead(this->pin);
 }
